@@ -1,0 +1,17 @@
+.booking_ticket{
+    color: red;
+}
+.background_img_ticket{
+    background-image: url('../../../assets/img/bgBuyTicket.jpg');
+    height: 78vh;
+    background-size: cover;
+}
+.background_color_ticket{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 78vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+}

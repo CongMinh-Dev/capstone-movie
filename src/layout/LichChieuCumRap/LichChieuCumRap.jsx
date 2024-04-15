@@ -17,7 +17,7 @@ const LichChieuCumRap = () => {
   }, []);
 
   return (
-    <div className="mt-10">
+    <div className="my-10">
       <h2 className="font-bold text-2xl text-center">
         Danh sách lịch chiếu cụm rạp
       </h2>

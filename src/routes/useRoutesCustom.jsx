@@ -1,11 +1,16 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
+import { Outlet, useRoutes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import SignIn from "../pages/SignIn/SignIn";
 import UserTemplate from "../template/UserTemplate/UserTemplate";
 import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
+import SignUp from "../pages/SignUp/SignUp";
+import UsManager from '../pages/UsManager/UsManager'
+import Nhap from "../pages/Nhap/Nhap";
+import BuyTicket from "../pages/User/BuyTicket/BuyTicket";
+
 const useRoutesCustom = () => {
   const routes = useRoutes([
     {
@@ -19,6 +24,15 @@ const useRoutesCustom = () => {
         {
           path: "sign-in",
           element: <SignIn />,
+         
+        },
+        {
+          path:"sign-up",
+          element:<SignUp/>
+        },
+        {
+          path:"buy-ticket"
+          ,element:<BuyTicket/>
         },
       ],
     },
@@ -38,6 +52,14 @@ const useRoutesCustom = () => {
         {
           path: "them-phim",
           element: <AddMovie />,
+        },
+        {
+          path: "quan-li-nguoi-dung",
+          element: <UsManager/>,
+        },
+        {
+          path: "nhap",
+          element: <Nhap/>
         },
       ],
     },

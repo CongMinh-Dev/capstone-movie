@@ -1,0 +1,15 @@
+.buy_ticket{
+    padding: 21px 105px;
+    display: none;
+}
+
+.movie_item:hover{
+    .buy_ticket{
+        display: block;
+    }
+    .desk_movie{
+        display: none;
+    }
+
+    
+}
