@@ -10,6 +10,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import UsManager from '../pages/UsManager/UsManager'
 import Nhap from "../pages/Nhap/Nhap";
 import BuyTicket from "../pages/User/BuyTicket/BuyTicket";
+import DetailMovie from "../pages/User/DetailMovie/DetailMovie";
 
 const useRoutesCustom = () => {
   const routes = useRoutes([
@@ -24,15 +25,19 @@ const useRoutesCustom = () => {
         {
           path: "sign-in",
           element: <SignIn />,
-         
+
         },
         {
-          path:"sign-up",
-          element:<SignUp/>
+          path: "sign-up",
+          element: <SignUp />
         },
         {
-          path:"buy-ticket"
-          ,element:<BuyTicket/>
+          path: "buy-ticket",
+          element: <BuyTicket />
+        },
+        {
+          path: "detail/:id"
+          , element: <DetailMovie />,
         },
       ],
     },
@@ -55,11 +60,11 @@ const useRoutesCustom = () => {
         },
         {
           path: "quan-li-nguoi-dung",
-          element: <UsManager/>,
+          element: <UsManager />,
         },
         {
           path: "nhap",
-          element: <Nhap/>
+          element: <Nhap />
         },
       ],
     },

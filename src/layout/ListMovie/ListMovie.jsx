@@ -3,7 +3,7 @@ import { quanLyPhimServ } from "../../services/quanLyPhim";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllMovieThunk, handleAllMovie } from "../../redux/slice/phimSlice";
 import "./lisMove.scss"
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 const ListMovie = () => {
   // const [arrMovie, setArrMovie] = useState([]);
   // có thể coi tham số state đại diện cho object reducer có ở store
@@ -25,6 +25,9 @@ const ListMovie = () => {
     //   });
     dispatch(getAllMovieThunk("abc"));
   }, []);
+
+  let navigate=useNavigate()
+
 
   return (
     <div className=" grid grid-cols-5 gap-10 ">
@@ -49,9 +52,13 @@ const ListMovie = () => {
             </div>
 
             {/* nút đặt vé */}
-            <NavLink to='buy-ticket'>
-              <button className="buy_ticket border rounded bg-red-600 text-white font-bold">MUA VÉ</button>
-            </NavLink>
+
+
+              <button onClick={() => {
+                navigate(`/detail/${movie.maPhim}`)
+              }
+              } className="buy_ticket border rounded bg-red-600 text-white font-bold">MUA VÉ</button>
+           
           </div>
         );
       })}
