@@ -3,7 +3,7 @@ import phimSlice from "./slice/phimSlice";
 import loadingSlice from "./slice/loadingSlice";
 import userSlice from "./slice/userSlice";
 import lichChieuPhimSlice from "./slice/lichChieuPhimSlice";
-
+import arrPhongVeSlice from "./slice/arrPhongVeSlice"
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +14,7 @@ export const store = configureStore({
     loadingSlice,
     userSlice,
     lichChieuPhimSlice,
+    arrPhongVeSlice,
     // huhuSlice
   },
 });

@@ -2,32 +2,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { handleTurnOffLoading, handleTurnOnLoading } from "./loadingSlice";
 import { quanLyRapServ } from "../../services/quanLyRap";
+import { quanLyDatve } from "../../services/quanLyDatve";
 
 const initialState = {
-  arrLichChieu: "",
+  arrPhongVe: {},
 };
 
-export const getAllLichChieuThunk = createAsyncThunk(
-  "quanlyRap/getAllLichChieuThunk",
+export const getAllArrPhongVeThunk = createAsyncThunk(
+  "quanLyDatve/getAllArrPhongVeThunk",
   async (dataLocal, { _, dispatch }) => {
     dispatch(handleTurnOnLoading());
-    const res = await quanLyRapServ.getAllThongTinLichChieu(dataLocal);
+    const res = await quanLyDatve.layDanhSachPhongVe(dataLocal);
     dispatch(handleTurnOffLoading());
     // res.data.content
     return res.data.content;
   }
 );
 
-const lichChieuPhimSlice = createSlice({
-  name: "quanlyRap",
+const arrPhongVeSlice = createSlice({
+  name: "quanLyDatve",
   initialState,
   reducers: {
     
   },
   extraReducers: (builder) => {
-    builder.addCase(getAllLichChieuThunk.fulfilled, (state, action) => {
+    builder.addCase(getAllArrPhongVeThunk.fulfilled, (state, action) => {
     //   console.log(action);
-      state.arrLichChieu = action.payload;
+      state.arrPhongVe = action.payload;
     
       
     });
@@ -36,4 +37,4 @@ const lichChieuPhimSlice = createSlice({
 
 // export const {  } = lichChieuPhimSlice.actions;
 
-export default lichChieuPhimSlice.reducer;
+export default arrPhongVeSlice.reducer;

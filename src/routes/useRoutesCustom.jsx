@@ -32,7 +32,7 @@ const useRoutesCustom = () => {
           element: <SignUp />
         },
         {
-          path: "buy-ticket",
+          path: "buy-ticket/:maLichChieu",
           element: <BuyTicket />
         },
         {
