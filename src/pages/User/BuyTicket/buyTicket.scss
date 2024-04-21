@@ -83,3 +83,74 @@
         /* position: absolute; */
     }
 }
+
+.cart{
+    
+    color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%;
+    .ghe{
+        border: 3px solid orange;
+        /* width: 45px;
+        height: 35px; */
+        font-size: 12px;
+        margin-left: 2%;
+        margin-bottom: 15%;
+        border-radius: 5px;
+    }
+    
+    .cart_ghe_da_dat{
+        border: 3px solid orange;
+        border-radius: 5px;
+        background-color: rgb(255, 166, 0.5);
+        width: 45px;
+        height: 35px;
+        display: inline-block;
+    }
+    
+    .cart_ghe_dang_chon{
+        border: 3px solid orange;
+        border-radius: 5px;
+        background-color: rgba(0, 128, 0, 0.5);
+        width: 45px;
+        height: 35px;
+        display: inline-block;
+    }
+    
+    .cart_ghe_chua_dat{
+        border: 3px solid orange;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.0);
+        width: 45px;
+        height: 35px;
+        display: inline-block;
+    }
+    
+    .table{
+        border: 1px solid white;
+        color: white;
+        text-align: center;
+        
+    }
+    .cart_table{
+        height: 50vh;
+        overflow: auto;
+    
+    }
+    th,td{
+        border: 1px solid white;
+        text-align: center;
+    
+    }
+    .th_so_ghe{
+        padding: 0 30px;
+    }
+    .th_gia{
+        padding: 0 30px;
+    }
+    .th_huy{
+        padding: 0 30px;
+    }
+}

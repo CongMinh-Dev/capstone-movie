@@ -6,6 +6,7 @@ import { quanLyDatve } from "../../services/quanLyDatve";
 
 const initialState = {
   arrPhongVe: {},
+  arrCart: []
 };
 
 export const getAllArrPhongVeThunk = createAsyncThunk(
@@ -19,22 +20,37 @@ export const getAllArrPhongVeThunk = createAsyncThunk(
   }
 );
 
+
+let arrCartTam = []
+
 const arrPhongVeSlice = createSlice({
   name: "quanLyDatve",
   initialState,
   reducers: {
-    
+    handelAddToCartSlice: (state, action) => {
+      arrCartTam.push(action.payload)
+      state.arrCart = [...arrCartTam]
+    },
+    handelDeletteCartSlice: (state, action) => {
+      let ghe = action.payload
+      let index = arrCartTam.findIndex((gheTam) => {
+        return gheTam.maGhe == ghe.maGhe
+      })
+      arrCartTam.splice(index,1)
+      state.arrCart = [...arrCartTam]
+    },
+
   },
+
+
   extraReducers: (builder) => {
     builder.addCase(getAllArrPhongVeThunk.fulfilled, (state, action) => {
-    //   console.log(action);
+      // console.log(action);
       state.arrPhongVe = action.payload;
-    
-      
     });
   },
 });
 
-// export const {  } = lichChieuPhimSlice.actions;
+export const { handelAddToCartSlice,handelDeletteCartSlice } = arrPhongVeSlice.actions;
 
 export default arrPhongVeSlice.reducer;

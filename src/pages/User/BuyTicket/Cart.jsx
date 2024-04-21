@@ -1,86 +1,89 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, useEffect } from 'react'
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { handelDeletteCartSlice } from '../../../redux/slice/arrPhongVeSlice';
 
 
-class Cart extends Component {
-  render() {
-    let tongTien=0;
-    return (
-      <div className='cart col-4'>
-        <br />
-        <h2 >DANH SÁCH GHẾ BẠN ĐÃ CHỌN</h2>
-        <br /><br />
+export default function Cart({ thongtinPhim }) {
+  let arrCart = useSelector((state) => {
+    return state.arrPhongVeSlice.arrCart
+  }
+  )
+  let dispatch=useDispatch()
+  let tongTien = 0;
 
-        <div className="cart_ghe_da_dat"></div> <span>Ghế đã đặt</span> <br />
-        <div className="cart_ghe_dang_chon"></div> <span>Ghế đang chọn</span> <br />
-        <div className="cart_ghe_chua_dat"></div> <span>Ghế chưa đặt</span> <br />
-        <br />
-        <div className="cart_table">
-          <table className=' table'>
-            <thead>
-              <tr>
-                <th>Số Ghế</th>
-                <th>Giá</th>
-                <th>Hủy</th>
-              </tr>
-            </thead>
+  let handelDelete = (ghe) => {
+    // const divElement = document.getElementById(`${ghe.maGhe}`);
+    // const className = divElement.className
 
-            {/* render list  */}
-            <tbody>
-              {this.props.cart.map((item) => {
+    document.getElementById(ghe.maGhe).classList.remove("ghe_dang_dat");
+      dispatch(handelDeletteCartSlice(ghe))
 
-                return (
-                  <tr>
-                    <td style={{color:"yellow", fontWeight:"bold"}}>{item.soGhe}</td>
-                    <td style={{color:"yellow", fontWeight:"bold"}}>{item.gia} đ</td>
-                    <td>
-                      <button className='btn-danger' onClick={() => {
-                                    this.props.handelDelete(item);
-                                    
-                                }}>Xóa</button>
-                    </td>
-                  </tr>
+    // if (className == "ghe_dang_dat") {
 
-                )
-              })}
+      
 
-              {/* hàng tổng tiền */}
-              {this.props.cart.map((item) => {
-                tongTien=tongTien+item.gia
-                
-              })}
-              <tr>
-                <td style={{fontWeight:"bold"}}>Tổng Tiền</td>
-                <td style={{color:"yellow", fontWeight:"bold"}}>{tongTien} đ</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
 
-        </div>
+    // } 
+}
+
+  return (
+    <div className='cart col-4'>
+      <br />
+      <h2 >DANH SÁCH GHẾ BẠN ĐÃ CHỌN</h2>
+      <br /><br />
+
+      <div className="cart_ghe_da_dat"></div> <span>Ghế đã đặt</span> <br />
+      <div className="cart_ghe_dang_chon"></div> <span>Ghế đang chọn</span> <br />
+      <div className="cart_ghe_chua_dat"></div> <span>Ghế chưa đặt</span> <br />
+      <br />
+      <div className="cart_table">
+        <table className=' '>
+          <thead>
+            <tr>
+              <th className='th_so_ghe'>Số Ghế</th>
+              <th className='th_gia'>Giá</th>
+              <th className='th_huy'>Hủy</th>
+            </tr>
+          </thead>
+
+          {/* render list  */}
+          <tbody>
+            {arrCart.map((ghe) => {
+
+              return (
+                <tr>
+                  <td  style={{ color: "yellow", fontWeight: "bold" }}>{ghe.tenGhe}</td>
+                  <td  style={{ color: "yellow", fontWeight: "bold" }}>{ghe.giaVe} đ</td>
+                  <td > 
+                    <button className=' rounded bg-red-600 px-2 py-1 my-1' onClick={() => {
+                      handelDelete(ghe)
+                    }}>Xóa</button>
+                  </td>
+                </tr>
+
+              )
+            })}
+            {/* hàng tổng tiền */}
+            {arrCart.map((ghe) => {
+              tongTien = tongTien + ghe.giaVe
+
+            })}
+            <tr>
+              <td style={{ fontWeight: "bold" }}>Tổng Tiền</td>
+              <td style={{ color: "yellow", fontWeight: "bold" }}>{tongTien} đ</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
 
       </div>
-    )
-  }
-}
 
-let mapStateToProps = (state) => {
-  return {
-    cart: state.cart
-  }
-}
-let mapDispatchToProps = (dispatch) => {
-  return {
-      handelDelete: (ghe) => {
-          let action = {
-              type: "Delete",
-              payload: ghe
-          }
-          dispatch(action)
-      }
-  }
+    </div>
+  )
 }
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(Cart)
+
+
+

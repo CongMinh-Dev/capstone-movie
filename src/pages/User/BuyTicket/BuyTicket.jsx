@@ -7,18 +7,18 @@ import { getAllArrPhongVeThunk } from '../../../redux/slice/arrPhongVeSlice'
 import Item from './Item'
 const BuyTicket = () => {
   let { maLichChieu } = useParams()
-  
+
   let dispatch = useDispatch()
-  useEffect( () => {
+  useEffect(() => {
     dispatch(getAllArrPhongVeThunk(maLichChieu))
   }
     , [])
-  let {thongtinPhim,danhSachGhe}=useSelector((state) => {
+  let { thongtinPhim, danhSachGhe } = useSelector((state) => {
     return state.arrPhongVeSlice.arrPhongVe
   }
   )
 
-  
+
 
   return (
     <div className='background_img_ticket'>
@@ -41,14 +41,13 @@ const BuyTicket = () => {
             </div> */}
           <br />
 
-          {/* các hàng sau */}
-          <Item danhSachGhe={danhSachGhe}/>
-          
+          <Item danhSachGhe={danhSachGhe} />
+
 
         </div>
 
+        <Cart thongtinPhim={thongtinPhim} />
 
-        {/* <Cart/> */}
 
 
       </div>
