@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 
 export default function Item({danhSachGhe}) {
-    console.log(danhSachGhe)
+    if(danhSachGhe){console.log(danhSachGhe)}
 
 
     let handelChangeColor=(ghe) => { 
@@ -15,7 +15,7 @@ export default function Item({danhSachGhe}) {
      return (
         <div className='item'>
 
-            {danhSachGhe.map((item, index) => {
+            {danhSachGhe?.map((item, index) => {
 
 
                 return (
