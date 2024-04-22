@@ -6,7 +6,8 @@ import { quanLyDatve } from "../../services/quanLyDatve";
 
 const initialState = {
   arrPhongVe: {},
-  arrCart: []
+  arrCart: [],
+  objTicket: {}
 };
 
 export const getAllArrPhongVeThunk = createAsyncThunk(
@@ -23,6 +24,8 @@ export const getAllArrPhongVeThunk = createAsyncThunk(
 
 let arrCartTam = []
 
+let arrGheToObjTicket = []
+
 const arrPhongVeSlice = createSlice({
   name: "quanLyDatve",
   initialState,
@@ -36,8 +39,28 @@ const arrPhongVeSlice = createSlice({
       let index = arrCartTam.findIndex((gheTam) => {
         return gheTam.maGhe == ghe.maGhe
       })
-      arrCartTam.splice(index,1)
+      arrCartTam.splice(index, 1)
       state.arrCart = [...arrCartTam]
+    },
+    handelAddToTicketSlice: (state, action) => {
+      let ticket = { maLichChieu: action.payload.maLichChieu}
+      let gheTam = {
+        maGhe: action.payload.ghe.maGhe,
+        giaVe: action.payload.ghe.giaVe,
+      }
+      arrGheToObjTicket.push(gheTam)
+      ticket.danhSachVe = [...arrGheToObjTicket]
+      state.objTicket = ticket
+    },
+    handelRemoveToTicketSlice: (state, action) => {
+      let ticket = { maLichChieu: action.payload.maLichChieu}
+      let index=arrGheToObjTicket.findIndex((ghe) => {
+        return ghe.maGhe == action.payload.ghe.maGhe
+      }
+      )
+      arrGheToObjTicket.splice(index,1)
+      ticket.danhSachVe = [...arrGheToObjTicket]
+      state.objTicket = ticket
     },
 
   },
@@ -51,6 +74,7 @@ const arrPhongVeSlice = createSlice({
   },
 });
 
-export const { handelAddToCartSlice,handelDeletteCartSlice } = arrPhongVeSlice.actions;
+export const { handelAddToCartSlice, handelDeletteCartSlice, handelAddToTicketSlice,
+  handelRemoveToTicketSlice } = arrPhongVeSlice.actions;
 
 export default arrPhongVeSlice.reducer;

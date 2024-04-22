@@ -41,7 +41,7 @@ const BuyTicket = () => {
             </div> */}
           <br />
 
-          <Item danhSachGhe={danhSachGhe} />
+          <Item  />
 
 
         </div>

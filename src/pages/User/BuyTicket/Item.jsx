@@ -1,10 +1,19 @@
-import React from 'react'
-import { useDispatch, } from 'react-redux'
-import { handelAddToCartSlice, handelDeletteCartSlice } from '../../../redux/slice/arrPhongVeSlice';
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector, } from 'react-redux'
+import { handelAddToCartSlice, handelAddToTicketSlice, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../../redux/slice/arrPhongVeSlice';
+import { useParams } from 'react-router-dom';
+import { getLocalStorage } from '../../../utils/util';
 
 
-export default function Item({ danhSachGhe }) {
+export default function Item() {
+    let {danhSachGhe}=useSelector((state) => {
+        return state.arrPhongVeSlice.arrPhongVe
+    }
+    )
+   
+
     let dispatch = useDispatch()
+    let { maLichChieu } = useParams()
 
 
 
@@ -17,14 +26,20 @@ export default function Item({ danhSachGhe }) {
             document.getElementById(ghe.maGhe).classList.add("ghe_dang_dat");
             dispatch(handelAddToCartSlice(ghe))
 
+            let payload = { ghe, maLichChieu }
+            dispatch(handelAddToTicketSlice(payload))
+
+
 
         } else {
             document.getElementById(ghe.maGhe).classList.remove("ghe_dang_dat");
             dispatch(handelDeletteCartSlice(ghe))
+
+            let payload = { ghe, maLichChieu }
+            dispatch(handelRemoveToTicketSlice(payload))
         }
     }
-    let handelAddToCart = (ghe) => {
-    }
+
 
     let renderTenGhe = (tenGhe) => {
         let newTenGhe = tenGhe[tenGhe.length - 1]
@@ -36,6 +51,14 @@ export default function Item({ danhSachGhe }) {
 
     }
 
+
+    // let handelAddTicket = (ghe) => {
+
+
+    // }
+
+
+
     return (
         <div className='item'>
             {danhSachGhe?.map((ghe, index) => {
@@ -46,8 +69,8 @@ export default function Item({ danhSachGhe }) {
                         <button
 
                             onClick={() => {
-                                // handelAddToCart(ghe);
                                 handelChangeColor(ghe);
+                                // handelAddTicket(ghe)
                             }}
                             className={ghe.daDat ? "ghe_da_dat" : "ghe_chua_dat"}
                             id={ghe.maGhe}
