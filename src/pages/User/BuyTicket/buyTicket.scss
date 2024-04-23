@@ -54,6 +54,7 @@
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     width:90%;
+    height: 50%;
     margin-left: 8%;
     .ghe_da_dat{
         background-color: orange;
@@ -88,9 +89,23 @@
     
     color: white;
     position: fixed;
-    top: 0;
-    right: 0;
-    width: 30%;
+    top: 9%;
+    right: 5%;
+    width: 25%;
+    height: 60vh;
+    padding: 0 10px ;
+    border: 3px solid rgba(255, 255, 255, 0.0);
+    border-radius: 4px;
+    box-shadow: 0 0 30px 0 rgba(255, 254, 254, 0.671); 
+    .cart_table{
+        height: 30vh;
+        overflow: auto;
+
+    }
+    .demo{
+        height: 50px;
+        overflow: auto;
+    }
     .ghe{
         border: 3px solid orange;
         /* width: 45px;
@@ -134,11 +149,7 @@
         text-align: center;
         
     }
-    .cart_table{
-        height: 50vh;
-        overflow: auto;
-    
-    }
+   
     th,td{
         border: 1px solid white;
         text-align: center;

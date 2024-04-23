@@ -13,10 +13,7 @@ const BuyTicket = () => {
     dispatch(getAllArrPhongVeThunk(maLichChieu))
   }
     , [])
-  let { thongtinPhim, danhSachGhe } = useSelector((state) => {
-    return state.arrPhongVeSlice.arrPhongVe
-  }
-  )
+ 
 
 
 
@@ -41,12 +38,12 @@ const BuyTicket = () => {
             </div> */}
           <br />
 
-          <Item  />
+          <Item />
 
 
         </div>
 
-        <Cart thongtinPhim={thongtinPhim} />
+        <Cart />
 
 
 

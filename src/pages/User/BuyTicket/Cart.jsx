@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../../redux/slice/arrPhongVeSlice';
+import { getAllArrPhongVeThunk, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../../redux/slice/arrPhongVeSlice';
 import axios from 'axios';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { getLocalStorage } from '../../../utils/util';
 
 
-export default function Cart({ thongtinPhim }) {
+export default function Cart() {
   // redux
+  let { maLichChieu } = useParams()
+  let { thongTinPhim } = useSelector((state) => {
+    return state.arrPhongVeSlice.arrPhongVe
+  })
+  let [thongTinPhimState, setThongTinPhimState] = useState({})
+  useEffect(() => {
+    setThongTinPhimState(thongTinPhim)
+  }, [thongTinPhim])
+
+
   let arrCart = useSelector((state) => {
     return state.arrPhongVeSlice.arrCart
   }
@@ -27,7 +37,6 @@ export default function Cart({ thongtinPhim }) {
 
 
   // xóa vé
-  let { maLichChieu } = useParams()
   let handelDeleteTicket = (ghe) => {
     // console.log(ghe);
     let payload = { ghe, maLichChieu }
@@ -39,8 +48,8 @@ export default function Cart({ thongtinPhim }) {
   let userLocal = getLocalStorage("user")
   let tokenUser = userLocal.accessToken
   let handelBookingTicket = () => {
-    
-    if (arrCart.length>0) {
+
+    if (arrCart.length > 0) {
       axios({
         url: "https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/DatVe",
         method: "POST",
@@ -72,67 +81,93 @@ export default function Cart({ thongtinPhim }) {
 
 
   return (
-    <div className='cart col-4'>
+    <div className='cart '>
       <br />
-      <h2 >DANH SÁCH GHẾ BẠN ĐÃ CHỌN</h2>
-      <br /><br />
-
-      <div className="cart_ghe_da_dat"></div> <span>Ghế đã đặt</span> <br />
-      <div className="cart_ghe_dang_chon"></div> <span>Ghế đang chọn</span> <br />
-      <div className="cart_ghe_chua_dat"></div> <span>Ghế chưa đặt</span> <br />
+      <h2 className='text-center font-bold' >
+        {thongTinPhimState ? thongTinPhimState.tenPhim : "k"} <span> ~ {thongTinPhimState ? thongTinPhimState.tenRap : "k"}</span>
+      </h2>
       <br />
-      <div className="cart_table">
-        <table className=' '>
-          <thead>
-            <tr>
-              <th className='th_so_ghe'>Số Ghế</th>
-              <th className='th_gia'>Giá</th>
-              <th className='th_huy'>Hủy</th>
-            </tr>
-          </thead>
+      <div className='flex flex-wrap'>
+        <div >
+          <div className="cart_ghe_da_dat"></div> <span>Ghế đã đặt</span> <br />
+          <div className="cart_ghe_dang_chon"></div> <span>Ghế đang chọn</span> <br />
+          <div className="cart_ghe_chua_dat"></div> <span>Ghế chưa đặt</span> <br />
+        </div>
+        <div className='flex flex-col justify-center items-center w-1/2'>
+          <p className='font-bold'>Ngày chiếu, Giờ chiếu</p>
+          <p>
+            <span>{thongTinPhimState ? thongTinPhimState.ngayChieu : "k"} ~ </span>
+            <span> {thongTinPhimState ? thongTinPhimState.gioChieu : "k"}</span>
 
-          {/* render list  */}
-          <tbody>
-            {arrCart.map((ghe) => {
 
-              return (
-                <tr>
-                  <td style={{ color: "yellow", fontWeight: "bold" }}>{ghe.tenGhe}</td>
-                  <td style={{ color: "yellow", fontWeight: "bold" }}>{ghe.giaVe} đ</td>
-                  <td >
-                    <button className=' rounded bg-red-600 px-2 py-1 my-1' onClick={() => {
-                      handelDelete(ghe);
-                      handelDeleteTicket(ghe)
-                    }}>Xóa</button>
-                  </td>
-                </tr>
 
-              )
-            })}
-            {/* hàng tổng tiền */}
-            {arrCart.map((ghe) => {
-              tongTien = tongTien + ghe.giaVe
+          </p>
+        </div>
 
-            })}
-            <tr>
-              <td style={{ fontWeight: "bold" }}>Tổng Tiền</td>
-              <td style={{ color: "yellow", fontWeight: "bold" }}>{tongTien} đ</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td colSpan={"3"} className='p-1 '>
-                <button className='button_booking_ticket' onClick={(params) => {
-                  handelBookingTicket();
-                }} >BOOKING TICKET</button>
+      </div>
 
-              </td>
+      <br />
 
-            </tr>
-          </tbody>
-        </table>
+      {/* bảng */}
+      <div className="">
+        <div  className='cart_table '>
+
+          <table className=' m-auto  '>
+            <thead>
+              <tr>
+                <th className='th_so_ghe'>Số Ghế</th>
+                <th className='th_gia'>Giá</th>
+                <th className='th_huy'>Hủy</th>
+              </tr>
+            </thead>
+
+            {/* render cart  */}
+            <tbody>
+              {arrCart.map((ghe) => {
+
+                return (
+                  <tr>
+                    <td style={{ color: "yellow", fontWeight: "bold" }}>{ghe.tenGheString}</td>
+                    <td style={{ color: "yellow", fontWeight: "bold" }}>{ghe.giaVe} đ</td>
+                    <td >
+                      <button className=' rounded bg-red-600 px-2 py-1 my-1' onClick={() => {
+                        handelDelete(ghe);
+                        handelDeleteTicket(ghe)
+                      }}>Xóa</button>
+                    </td>
+                  </tr>
+
+                )
+              })}
+              {/* hàng tổng tiền */}
+              {arrCart.map((ghe) => {
+                tongTien = tongTien + ghe.giaVe
+
+              })}
+              <tr>
+                <td style={{ fontWeight: "bold" }}>Tổng Tiền</td>
+                <td style={{ color: "yellow", fontWeight: "bold" }}>{tongTien} đ</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colSpan={"3"} className='p-1 '>
+                  <button className='button_booking_ticket' onClick={(params) => {
+                    handelBookingTicket();
+                  }} >BOOKING TICKET</button>
+
+                </td>
+
+              </tr>
+            </tbody>
+
+
+          </table>
+        </div>
 
 
       </div>
+
+
 
     </div>
   )
