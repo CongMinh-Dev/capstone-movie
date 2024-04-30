@@ -59,6 +59,7 @@ const ListMovie = () => {
 
     document.querySelector(".video_trailer_background").style.display = "none"
     document.querySelector(".video_trailer").style.display = "none"
+    setVideoID("")
   }
 
 
