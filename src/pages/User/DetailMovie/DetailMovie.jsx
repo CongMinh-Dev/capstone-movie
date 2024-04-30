@@ -16,7 +16,12 @@ const DetailMovie = () => {
   })
   let { biDanh, dangChieu, heThongRapChieu, hinhAnh, maPhim, moTa, ngayKhoiChieu, tenPhim, trailer, danhGia } = arrLichChieuPhim
   // console.log(arrLichChieuPhim)
-  console.log(heThongRapChieu)
+  // console.log(heThongRapChieu)
+
+  let handleBuy=() => {
+    alert("Hãy chọn Cụm Rạp, Ngày, Giờ")
+  }
+  
   return (
     <div className='detailMovie '>
       <div className='container'>
@@ -37,8 +42,8 @@ const DetailMovie = () => {
             <p> <b>Ngày khởi chiếu:</b> {moment(ngayKhoiChieu).format("DD-MM-YYYY")}</p>
             <br />
             <div>
-              <button className=' rounded bg-green-600 px-4 py-2'>Mua vé</button>
-              <button className=' rounded bg-green-600 px-4 py-2 ml-2'>trailer</button>
+              <button className=' rounded bg-green-600 px-4 py-2' onClick={handleBuy}>Mua vé</button>
+              {/* <button className=' rounded bg-green-600 px-4 py-2 ml-2'>trailer</button> */}
             </div>
           </div>
 

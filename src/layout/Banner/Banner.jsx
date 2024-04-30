@@ -40,15 +40,15 @@ const Banner = () => {
   return (
     <div className="carousel_banner mb-6">
       <Carousel
-        nextArrow={<div>Hello</div>}
-        prevArrow={<div>Bye</div>}
+        nextArrow={<div><i class="fa-solid fa-arrow-right"></i></div>}
+        prevArrow={<div><i class="fa-solid fa-arrow-left"></i></div>}
         arrows={true}
         afterChange={onChange}
       >
         {arrBanner.map((banner, index) => {
           return (
             <div key={index} className="h-screen-70 ">
-              <img className="w-full" src={banner.hinhAnh} alt="" />
+              <img className="img_banner" src={banner.hinhAnh} alt="" />
             </div>
           );
         })}

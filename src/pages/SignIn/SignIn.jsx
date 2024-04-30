@@ -33,7 +33,8 @@ const SignIn = () => {
           notify("Đăng nhập thành công")
 
           setTimeout(() => {
-            user?.maLoaiNguoiDung == "QuanTri"?navigate("/admin"):navigate("/")
+            // user?.maLoaiNguoiDung == "QuanTri"?navigate("/admin"):navigate("/")
+            user?.maLoaiNguoiDung == "QuanTri"?navigate("/"):navigate("/")
           }, 1000);
           // console.log(user)
         } catch (error) {

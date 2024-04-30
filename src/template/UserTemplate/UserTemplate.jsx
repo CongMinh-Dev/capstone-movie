@@ -38,7 +38,7 @@ const UserTemplate = () => {
   const handleCloseTime = (time) => {
     setCloseTime(time);
   };
-  return isDesktop ? (
+  return  (
     <NotifyContext.Provider
       // value={{
       //   renderNotify,
@@ -171,9 +171,7 @@ const UserTemplate = () => {
       </div>
       <ToastContainer autoClose={closeTime} theme="dark" />
     </NotifyContext.Provider>
-  ) : (
-    <div>Tôi đang ở tablet</div>
-  );
+  ) ;
 };
 
 export default UserTemplate;

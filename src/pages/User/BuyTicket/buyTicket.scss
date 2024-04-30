@@ -5,6 +5,11 @@
     width: 100%;
     height: 100vh;
     z-index: 1;
+    .home_page{
+        position: fixed;
+        top: 2%;
+        left: 80%;
+    }
 }
 
 .background_img_ticket{

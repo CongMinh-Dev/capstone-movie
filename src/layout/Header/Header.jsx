@@ -4,7 +4,21 @@ import { NavLink } from "react-router-dom";
 import { getLocalStorage } from "../../utils/util";
 const Header = () => {
   const userLocal = getLocalStorage("user");
-  // console.log(userLocal);
+
+  // xử lý loại người dùng
+  let loaiNguoiDung=false
+  if(userLocal){
+    if(userLocal.maLoaiNguoiDung=="QuanTri"){
+      loaiNguoiDung=true
+    }else{loaiNguoiDung=false}
+  }
+
+  // đăng xuất
+  let handleLogOut=() => {
+    localStorage.clear()
+    window.location.reload();
+  }
+  
   return (
     <header>
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 ">
@@ -17,7 +31,13 @@ const Header = () => {
           </a>
           <div className="flex items-center lg:order-2">
             {userLocal ? (
-              <p>{userLocal.hoTen}</p>
+              <div className="flex">
+              <p className="text-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none ">{userLocal.hoTen}</p>
+              <button 
+              className="text-gray-800 hover:bg-red-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2  focus:outline-none "
+              onClick={handleLogOut}
+              > Đăng xuất</button>
+              </div>
             ) : (
               <NavLink
                 to="/sign-in"
@@ -25,6 +45,7 @@ const Header = () => {
               >
                 Đăng nhập
               </NavLink>
+              
             )}
           </div>
           <div
@@ -33,13 +54,9 @@ const Header = () => {
           >
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
               <li>
-                <NavLink
-                  to="/"
-                  className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
-                  aria-current="page"
-                >
-                  Lịch Chiếu
-                </NavLink>
+                <a href="#" className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
+                  aria-current="page">Lịch Chiếu</a>
+
               </li>
               <li>
                 <NavLink
@@ -68,6 +85,29 @@ const Header = () => {
                   Ứng dụng
                 </NavLink>
               </li>
+
+              {/* là admin mới hiện quản lý */}
+              {loaiNguoiDung && (
+                <li>
+                  <NavLink
+                    to="/admin"
+                    className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
+                    aria-current="page"
+                  >
+                    Quản lý
+                  </NavLink>
+                </li>)
+
+              }
+              {/* <li>
+                <NavLink
+                  to="/"
+                  className="block py-2 pr-4 pl-3  rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 "
+                  aria-current="page"
+                >
+                  Quản lý
+                </NavLink>
+              </li> */}
             </ul>
           </div>
         </div>

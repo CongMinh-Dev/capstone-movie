@@ -84,17 +84,25 @@ const UsManager = () => {
 
 
   // tìm user, k tim thay thi thong bao
-  let [nameInput, setNameInpput] = useState()
+  let [nameInput, setNameInpput] = useState("")
   let handelonchange = (e) => {
     setNameInpput(e.target.value)
   }
   let [user, setUser] = useState()
   let userTam = []
+  useEffect(() => {
+    handleFindUser()
+  }
+  ,[arrUser])
   let handleFindUser = () => {
     let index = newArrUser.findIndex((item) => {
       return item.taiKhoan == nameInput
     }
     );
+    if(nameInput==""){
+      document.querySelector(".notify_find_user").style.display = "none"
+      return
+    }
     if (index == -1) {
       document.querySelector(".notify_find_user").style.display = "block"
       setUser(false)
@@ -222,6 +230,11 @@ const UsManager = () => {
   return (
     <div className='usManager'>
       <button className='add_user py-2 px-5 rounded bg-blue-600 text-white hover:bg-blue-700' onClick={handleAddUser}>Thêm người dùng</button>
+      <NavLink to={"/"}> 
+       <button className=' py-2 px-5 rounded  text-black hover:text-blue-700 button_back_home_page' onClick={handleAddUser} >Trở về Trang Chủ</button>
+
+      </NavLink>
+      {/* tìm người dùng */}
       <div className='flex items-center  space-x-2'>
         <div className='w-11/12'>
           <InputCustom className='mt-0 mb-2 ' onChange={handelonchange} placeholder={"Nhập tên tài khoản"} />
@@ -229,19 +242,17 @@ const UsManager = () => {
         <button className='find_user  px-5 rounded bg-blue-600 text-white hover:bg-blue-700  h-10 ' onClick={handleFindUser}>Tìm</button>
       </div>
       <p className='text-red-600 hidden notify_find_user'>Không có tài khoản này </p>
-      {/* ant layout table */}
+
+      {/* ant layout table: hiển thị danh sách người dùng có điều kiện  */}
       <Table className='table_user' columns={columns} dataSource={user ? user : data} />
 
       {/* layout popup */}
       <div className='popup_add_user '>
-
         <p className='w-full text-center font-bold text-xl text-blue-600' >Tạo Tài Khoản</p>
-
         <form onSubmit={handleSubmit}>
           <InputCustom touched={touched.taiKhoan} onBlur={handleBlur} value={values.taiKhoan} onChange={
             (e) => {
               handleChange(e);
-
             }}
             className='mt-0 mb-2 ' name={"taiKhoan"} label={"Tài khoản"} placeholder={"Nhập tên tài khoản"} />
           {errors.taiKhoan && touched.taiKhoan ? (<p className='text-sm text-red-500' >{errors.taiKhoan} </p>) : null}

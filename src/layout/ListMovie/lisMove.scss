@@ -1,6 +1,8 @@
+
 .buy_ticket{
     padding: 21px 105px;
     display: none;
+    width: 100%;
 }
 
 .movie_item:hover{
@@ -10,6 +12,73 @@
     .desk_movie{
         display: none;
     }
+    .button_play_trailer{
+        display: block;
+    }
 
     
+}
+.img_phim{
+    position: relative;
+    .button_play_trailer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: none;
+    }
+    
+}
+.movie_item{
+    width: 25%;
+    padding: 15px 4px 0 4px;
+    .img_phim2{
+        width: 100%;
+        height: 300px;
+    }
+}
+
+
+.video_trailer_background{
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+}
+.video_trailer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 3;
+    display: none;
+}
+.list_movie{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px){
+    .movie_item{
+        width: 25%;
+        padding: 15px 4px 0 4px;
+        .img_phim2{
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+@media screen and (max-width: 576px){
+    .movie_item{
+        width: 33%;
+        padding: 15px 4px 0 4px;
+        .img_phim2{
+            width: 100%;
+            height: 200px;
+        }
+    }
 }

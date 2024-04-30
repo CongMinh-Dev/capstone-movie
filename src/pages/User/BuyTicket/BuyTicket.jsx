@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Cart from './Cart'
 import "./buyTicket.scss"
-import { useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllArrPhongVeThunk } from '../../../redux/slice/arrPhongVeSlice'
 import Item from './Item'
@@ -13,7 +13,7 @@ const BuyTicket = () => {
     dispatch(getAllArrPhongVeThunk(maLichChieu))
   }
     , [])
- 
+
 
 
 
@@ -21,6 +21,11 @@ const BuyTicket = () => {
     <div className='background_img_ticket'>
       <div className='background_color_ticket '></div>
       <div className="booking_ticket ">
+        {/* trang chủ */}
+        <div className='w-full text-white font-bold hover:text-blue-300  home_page'>
+          <NavLink to='/'>Về Trang Chủ</NavLink>
+        </div>
+
         {/*danh sách phòng vé  */}
         <div className='list w-8/12'>
           <h1>ĐẶT VÉ XEM PHIM</h1>
