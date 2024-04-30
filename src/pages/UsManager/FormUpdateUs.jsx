@@ -66,7 +66,7 @@ const FormUpdateUs = ({ userEdit }) => {
     return (
     <div className='popup_add_user2 '>
 
-        <p className='w-full text-center font-bold text-xl text-blue-600' >Tạo Tài Khoản</p>
+        <p className='w-full text-center font-bold text-xl text-blue-600' >Sửa Tài Khoản</p>
 
         <form onSubmit={handleSubmit}>
             <InputCustom touched={touched.taiKhoan} onBlur={handleBlur} value={values.taiKhoan} onChange={

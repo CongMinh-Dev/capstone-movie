@@ -8,7 +8,6 @@ import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
 import SignUp from "../pages/SignUp/SignUp";
 import UsManager from '../pages/UsManager/UsManager'
-import Nhap from "../pages/Nhap/Nhap";
 import BuyTicket from "../pages/User/BuyTicket/BuyTicket";
 import DetailMovie from "../pages/User/DetailMovie/DetailMovie";
 
@@ -51,7 +50,7 @@ const useRoutesCustom = () => {
         },
         {
           // path: "them-phim",
-          element: <AddMovie />,
+          element: <UsManager />,
           index: true,
         },
         {
@@ -61,10 +60,6 @@ const useRoutesCustom = () => {
         {
           path: "quan-li-nguoi-dung",
           element: <UsManager />,
-        },
-        {
-          path: "nhap",
-          element: <Nhap />
         },
       ],
     },

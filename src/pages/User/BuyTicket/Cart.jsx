@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllArrPhongVeThunk, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../../redux/slice/arrPhongVeSlice';
 import axios from 'axios';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { getLocalStorage } from '../../../utils/util';
+import { NotifyContext } from '../../../template/UserTemplate/UserTemplate';
 
 
 export default function Cart() {
+let notify=useContext(NotifyContext)
+
   // redux
   let { maLichChieu } = useParams()
   let { thongTinPhim } = useSelector((state) => {
@@ -60,8 +63,12 @@ export default function Cart() {
         }
       })
         .then((res) => {
-          console.log("xử lý thành công");
-          window.location.reload();
+          notify("Thanh toán thành công")
+          setTimeout(() => {
+            // user?.maLoaiNguoiDung == "QuanTri"?navigate("/admin"):navigate("/")
+            window.location.reload();
+          }, 1000);
+          
 
 
         })
@@ -126,7 +133,7 @@ export default function Cart() {
               {arrCart.map((ghe) => {
 
                 return (
-                  <tr>
+                  <tr key={ghe.maGhe}>
                     <td style={{ color: "yellow", fontWeight: "bold" }}>{ghe.tenGheString}</td>
                     <td style={{ color: "yellow", fontWeight: "bold" }}>{ghe.giaVe} đ</td>
                     <td >
