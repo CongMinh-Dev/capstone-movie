@@ -162,7 +162,7 @@ const LichChieuPhim = ({ cumRapChieu }) => {
   // );
   return (
     <div className='cumRapDetailMovie'>
-        {cumRapChieu.map((cumrap) => {
+        {cumRapChieu?.map((cumrap) => {
             return (
                 <div key={cumrap.maCumRap}>
                     <div className='font-bold text-green-600 pb-2 pt-6'>{cumrap.tenCumRap}</div>
