@@ -1,0 +1,60 @@
+@import "./../../sass/mixin/responsive";
+
+.orderTicket {
+  margin: auto;
+  text-align: center;
+  .buyTicket {
+    margin: 40px auto;
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: aqua;
+    color: cadetblue;
+    border-radius: 20px;
+    transition: all 0.5s;
+    &:hover{
+        background-color: chartreuse;
+        color: white;
+    }
+  }
+}
+.info_movie_bg{
+ position: fixed;
+ top: 0;
+ left: 0;
+ height: 100vh;
+ width: 100%;
+ background-color: rgba(0, 0, 0, 0.884);
+ z-index: 2;
+ display: none;
+}
+.info_movie{
+  .mo_ta_phim{
+    overflow: auto;
+    height: 200px;
+  }
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 3;
+  background-color: rgba(255, 166, 0, 0.9);
+  height: 100vh;
+  display: none;
+}
+
+@media screen and (max-width: 1200px){
+  .info_movie{
+    width: 70%;
+  }
+}
+@media screen and (max-width: 960px){
+  .info_movie{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 959px){
+  .info_movie{
+    width: 100%;
+  }
+}

@@ -7,9 +7,10 @@ import AdminTemplate from "../template/AdminTemplate/AdminTemplate";
 import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
 import SignUp from "../pages/SignUp/SignUp";
-import UsManager from '../pages/UsManager/UsManager'
-import BuyTicket from "../pages/User/BuyTicket/BuyTicket";
-import DetailMovie from "../pages/User/DetailMovie/DetailMovie";
+import UsManager from "../pages/UsManager/UsManager";
+import FormUpdateUs from "../pages/UsManager/FormUpdateUs";
+import DetailMovie from "../pages/DetailMovie/DetailMovie";
+import BuyTicket from "../pages/BuyTicket/BuyTicket";
 
 const useRoutesCustom = () => {
   const routes = useRoutes([
@@ -24,19 +25,26 @@ const useRoutesCustom = () => {
         {
           path: "sign-in",
           element: <SignIn />,
-
         },
         {
           path: "sign-up",
-          element: <SignUp />
+          element: <SignUp />,
         },
         {
-          path: "buy-ticket/:maLichChieu",
-          element: <BuyTicket />
+          path: "/detail",
+          element: <DetailMovie />,
         },
         {
-          path: "detail/:id"
-          , element: <DetailMovie />,
+          path: "/detail/:maPhim",
+          element: <DetailMovie />,
+        },
+        // {
+        //   path: "/buy-ticket",
+        //   element: <BuyTicket />,
+        // },
+        {
+          path: "/buy-ticket/:maLichChieu",
+          element: <BuyTicket />,
         },
       ],
     },
@@ -49,7 +57,6 @@ const useRoutesCustom = () => {
           element: <MovieManager />,
         },
         {
-          // path: "them-phim",
           element: <UsManager />,
           index: true,
         },
@@ -61,6 +68,10 @@ const useRoutesCustom = () => {
           path: "quan-li-nguoi-dung",
           element: <UsManager />,
         },
+        // {
+        //   path: "nhap",
+        //   element: <Nhap />,
+        // },
       ],
     },
   ]);

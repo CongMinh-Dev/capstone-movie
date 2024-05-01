@@ -81,7 +81,10 @@ const UsManager = () => {
   }
   )
   let data = newArrUser;
-
+// hiển thị 9 dòng
+const pagination = {
+  pageSize: 8, // Hiển thị 9 dòng trên mỗi trang
+};
 
   // tìm user, k tim thay thi thong bao
   let [nameInput, setNameInpput] = useState("")
@@ -244,7 +247,7 @@ const UsManager = () => {
       <p className='text-red-600 hidden notify_find_user'>Không có tài khoản này </p>
 
       {/* ant layout table: hiển thị danh sách người dùng có điều kiện  */}
-      <Table className='table_user' columns={columns} dataSource={user ? user : data} />
+      <Table className='table_user' columns={columns} dataSource={user ? user : data} pagination={pagination} />
 
       {/* layout popup */}
       <div className='popup_add_user '>

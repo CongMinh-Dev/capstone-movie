@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllArrPhongVeThunk, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../../redux/slice/arrPhongVeSlice';
+import { getAllArrPhongVeThunk, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../redux/slice/arrPhongVeSlice';
 import axios from 'axios';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import { getLocalStorage } from '../../../utils/util';
-import { NotifyContext } from '../../../template/UserTemplate/UserTemplate';
+import { getLocalStorage } from '../../utils/util';
+import { NotifyContext } from '../../template/UserTemplate/UserTemplate';
 
 
 export default function Cart() {

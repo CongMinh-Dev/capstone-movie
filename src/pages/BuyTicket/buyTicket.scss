@@ -1,3 +1,19 @@
+
+
+.background_img_ticket{
+    background-image: url('../../assets/img/bgBuyTicket.jpg');
+    height: 100vh;
+    background-size: cover;
+}
+.background_color_ticket{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+}
 .booking_ticket{
     position: fixed;
     top: 0;
@@ -8,23 +24,14 @@
     .home_page{
         position: fixed;
         top: 2%;
-        left: 80%;
+        left: 79%;
     }
-}
-
-.background_img_ticket{
-    background-image: url('../../../assets/img/bgBuyTicket.jpg');
-    height: 78vh;
-    background-size: cover;
-}
-.background_color_ticket{
-    background-color: rgba(0, 0, 0, 0.5);
-    position: relative;
-    height: 78vh;
-    width: 100%;
-    top: 0;
-    left: 0;
-
+    .footer_buy_ticket{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 }
 
 .list{

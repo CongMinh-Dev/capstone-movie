@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector, } from 'react-redux'
-import { handelAddToCartSlice, handelAddToTicketSlice, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../../redux/slice/arrPhongVeSlice';
+import { handelAddToCartSlice, handelAddToTicketSlice, handelDeletteCartSlice, handelRemoveToTicketSlice } from '../../redux/slice/arrPhongVeSlice';
 import { useParams } from 'react-router-dom';
-import { getLocalStorage } from '../../../utils/util';
+// import { getLocalStorage } from '../../../utils/util';
 import { number } from 'yup';
 
 

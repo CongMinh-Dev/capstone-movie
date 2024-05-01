@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Cart from './Cart'
 import "./buyTicket.scss"
-import { NavLink, useParams } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllArrPhongVeThunk } from '../../../redux/slice/arrPhongVeSlice'
+import { getAllArrPhongVeThunk } from '../../redux/slice/arrPhongVeSlice'
 import Item from './Item'
+import Footer from '../../layout/Footer/Footer'
 const BuyTicket = () => {
   let { maLichChieu } = useParams()
 
@@ -14,7 +15,8 @@ const BuyTicket = () => {
   }
     , [])
 
-
+  // quay Lại
+  let navigate = useNavigate()
 
 
   return (
@@ -23,7 +25,15 @@ const BuyTicket = () => {
       <div className="booking_ticket ">
         {/* trang chủ */}
         <div className='w-full text-white font-bold hover:text-blue-300  home_page'>
-          <NavLink to='/'>Về Trang Chủ</NavLink>
+          <button
+            className="buyTicket"
+            onClick={() => {
+              // navigate(`/detail/${selectedMovie.maPhim}`);
+              navigate(-1)
+            }}
+          >
+            Quay Lại Đặt Vé
+          </button>
         </div>
 
         {/*danh sách phòng vé  */}
@@ -41,7 +51,6 @@ const BuyTicket = () => {
                     )
                 })}
             </div> */}
-          <br />
 
           <Item />
 
@@ -49,7 +58,10 @@ const BuyTicket = () => {
         </div>
 
         <Cart />
+        <div className='footer_buy_ticket'>
+          <Footer />
 
+        </div>
 
 
       </div>
