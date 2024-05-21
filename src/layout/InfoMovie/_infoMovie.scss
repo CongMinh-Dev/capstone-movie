@@ -41,6 +41,9 @@
   background-color: rgba(255, 166, 0, 0.9);
   height: 100vh;
   display: none;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 166, 0, 0.9) rgba(255, 166, 0, 0.9);
 }
 
 @media screen and (max-width: 1200px){
