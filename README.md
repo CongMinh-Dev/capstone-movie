@@ -9,5 +9,3 @@ Một số thư viện cần cài đặt trong dự án
 - formik và yup
 
 
-demo youtube:
-https://youtu.be/yLitA_P0GVg
