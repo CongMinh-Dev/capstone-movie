@@ -29,7 +29,6 @@ const SignIn = () => {
           // lưu trữ dữ liệu xuống localstorage để lưu trữ
           saveLocalStorage("user", res.data.content);
           const user = getLocalStorage("user");
-          console.log(user)
           notify("Đăng nhập thành công")
 
           setTimeout(() => {
@@ -38,7 +37,7 @@ const SignIn = () => {
           }, 1000);
           // console.log(user)
         } catch (error) {
-          console.log(error);
+          
           notify(error.response.data.content);
         }
       },

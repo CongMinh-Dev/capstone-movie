@@ -40,7 +40,6 @@ const Li = () => {
 
     fetchData();
   }, []);
-  console.log(movieLists);
   return (
     <div className="lstMovieBG py-10" id="listMovie">
       <div

@@ -6,7 +6,6 @@ const initialState = {
   lstChoNgoi: [],
   bookingSeat: [],
 };
-console.log(initialState.bookingSeat);
 export const getLichChieu = createAsyncThunk(
   "quanLyRap/getLichChieu",
   async (maLichChieu, { _, dispatch }) => {

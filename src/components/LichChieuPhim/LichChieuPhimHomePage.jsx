@@ -10,7 +10,6 @@ const LichChieuPhim = ({ cumrap }) => {
   const navigate = useNavigate();
   const [filmSelected, setFilmSelected] = useState(null);
   const user = getLocalStorage("user");
-  console.log(user);
 
   useEffect(() => {
     setFilmSelected(maPhim);
