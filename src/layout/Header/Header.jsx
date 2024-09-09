@@ -16,7 +16,7 @@ export default function Header() {
     setOpen(false);
   };
 
-  const userLocal = getLocalStorage("user");
+  const userLocal = getLocalStorage("userMovie0967146");
   // console.log(userLocal);
   const menuBar = [
     { titleMenu: "Trang Chủ", path: "#header" },
@@ -27,7 +27,7 @@ export default function Header() {
   // console.log(menuBar);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("userMovie0967146");
     onClose();
     // Redirect or do any additional logic after logout
   };

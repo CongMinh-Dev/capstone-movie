@@ -27,8 +27,8 @@ const SignIn = () => {
           const res = await quanLyNguoiDungServ.dangNhap(values);
           // console.log(res);
           // lưu trữ dữ liệu xuống localstorage để lưu trữ
-          saveLocalStorage("user", res.data.content);
-          const user = getLocalStorage("user");
+          saveLocalStorage("userMovie0967146", res.data.content);
+          const user = getLocalStorage("userMovie0967146");
           notify("Đăng nhập thành công")
 
           setTimeout(() => {

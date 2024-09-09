@@ -48,7 +48,7 @@ let notify=useContext(NotifyContext)
 
 
   // đặt vé
-  let userLocal = getLocalStorage("user")
+  let userLocal = getLocalStorage("userMovie0967146")
   let tokenUser = userLocal.accessToken
   let handelBookingTicket = () => {
 

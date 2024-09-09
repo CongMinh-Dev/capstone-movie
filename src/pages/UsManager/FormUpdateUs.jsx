@@ -9,7 +9,7 @@ import * as Yup from "yup"
 import { useFormik } from 'formik'
 
 const FormUpdateUs = ({ userEdit }) => {
-    let userLocal = getLocalStorage("user")
+    let userLocal = getLocalStorage("userMovie0967146")
     let tokenUser = userLocal.accessToken
     let notify = useContext(NotifyContext)
     let { handleSubmit, handleChange, setFieldValue, values, errors, handleBlur, touched } = useFormik(

@@ -9,7 +9,7 @@ const LichChieuPhim = ({ cumrap }) => {
   const { maPhim } = useParams();
   const navigate = useNavigate();
   const [filmSelected, setFilmSelected] = useState(null);
-  const user = getLocalStorage("user");
+  const user = getLocalStorage("userMovie0967146");
 
   useEffect(() => {
     setFilmSelected(maPhim);

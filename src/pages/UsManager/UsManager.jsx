@@ -119,7 +119,7 @@ const pagination = {
 
   // thêm người dùng
   let notify = useContext(NotifyContext)
-  let userLocal = getLocalStorage("user")
+  let userLocal = getLocalStorage("userMovie0967146")
   let tokenUser = userLocal.accessToken
   let handleAddUser = () => {
     document.querySelector(".popup_add_user").style.display = "block"

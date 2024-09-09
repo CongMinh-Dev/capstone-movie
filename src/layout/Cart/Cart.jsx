@@ -20,7 +20,7 @@ const Cart = () => {
   const { maLichChieu } = useParams();
   const thongTinVe = useSelector((state) => state.muaGheSlice.lstChoNgoi);
   const gheNgoi = useSelector((state) => state.muaGheSlice.bookingSeat);
-  const user = getLocalStorage("user");
+  const user = getLocalStorage("userMovie0967146");
   // console.log(accessToken);
   const [tenGhe, setTenGhe] = useState([]);
   const [giaTicket, setTicket] = useState([]);

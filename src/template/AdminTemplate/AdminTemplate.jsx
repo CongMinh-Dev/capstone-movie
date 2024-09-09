@@ -22,7 +22,7 @@ const AdminTemplate = () => {
   useEffect(() => {
     // thực hiện lấy dữ liệu từ local lên để kiểm tra
     // Hello Thành
-    const user = getLocalStorage("user");
+    const user = getLocalStorage("userMovie0967146");
     // console.log(user);
     if (!user) {
       window.location.href = "https://google.com";
