@@ -65,6 +65,9 @@
                 justify-content: center;
                 margin: auto;
                 overflow-y: scroll;
+                height: 565px;
+              
+                
                 @include breakpoint(lg){
                   height: 545px;
                 }
@@ -127,7 +130,26 @@
             }
           }
         }
+
       }
+      
     }
   }
+
+
+}
+
+// movie name in list
+.tab_cum_rap.ant-tabs .ant-tabs-content-holder .ant-tabs-content .ant-tabs-tabpane .phimDangChieu .tabPhim .titlePhim .namePhim{
+  display: flex;
+}
+
+.tab_cum_rap.ant-tabs .ant-tabs-content-holder .ant-tabs-content .ant-tabs-tabpane .phimDangChieu .tabPhim .titlePhim .namePhim .titleContent {
+  font-size: 20px;
+  color: red;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  width: 200px;
 }

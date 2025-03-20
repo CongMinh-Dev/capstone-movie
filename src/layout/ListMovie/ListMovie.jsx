@@ -62,7 +62,7 @@ const Li = () => {
           {/* danh sach phim */}
           <div className="movieList xl:px-10 xl:w-8/12 lg:w-7/12 md:w-full sm:w-full">
             <div className="">
-              <Tabs>
+              <Tabs >
                 {itemsTitle.map((title, index) => (
                   <Tabs.TabPane key={index} tab={title}>
                     {/* Hiển thị danh sách phim ở đây */}
@@ -115,6 +115,7 @@ const Li = () => {
                   </Tabs.TabPane>
                 ))}
               </Tabs>
+              
             </div>
           </div>
         </div>

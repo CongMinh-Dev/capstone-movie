@@ -62,7 +62,7 @@ const Banner = () => {
           </button>
         </div>
         
-        <Carousel autoplaySpeed={15000} ref={carouselRef}>
+        <Carousel  ref={carouselRef}>
           {banner.map((item) => {
             return (
               <div className="bgbanner block" key={item.maPhim}>

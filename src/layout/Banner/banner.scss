@@ -37,10 +37,9 @@
       overflow: hidden;
       position: relative;
       @include breakpoint(xxl) {
-        height: 1200px;
+        height: 1000px;
       }
       @include breakpoint(xl) {
-        width: 100%;
         height: 900px;
       }
       @include breakpoint(lg) {
@@ -57,7 +56,8 @@
       }
       img {
         object-fit: cover;
-        animation: animationScale 30s infinite;
+        width: 100%;
+        // animation: animationScale 30s infinite;
         object-position: center;
       }
       .overlay {

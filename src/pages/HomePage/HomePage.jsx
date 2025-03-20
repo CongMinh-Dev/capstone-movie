@@ -12,13 +12,7 @@ const HomePage = () => {
     <div>
       {/* header  */}
       <Header />
-      {/* <button
-        onClick={() => {
-          notify("Tui test thôi");
-        }}
-      >
-        Bấm thử nè
-      </button> */}
+      
       {/* banner  */}
       <Banner />
 
