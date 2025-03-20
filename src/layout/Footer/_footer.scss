@@ -34,4 +34,24 @@
       }
     }
   }
+  .logo_text{
+    transition: all .5s;
+    &:hover{
+      box-shadow: 0 0 30px 0 rgb(255, 255, 255); 
+    }
+  }
+  .logo{
+    animation: animationScale 2s infinite;
+  }
+}
+
+@keyframes animationScale {
+  0% {
+    transform: scale(1);
+  }
+  
+  100% {
+    transform: scale(1.2);
+
+  }
 }

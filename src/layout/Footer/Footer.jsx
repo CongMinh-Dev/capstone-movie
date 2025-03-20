@@ -8,8 +8,9 @@ const Footer = () => {
     <div className="footerPt flex flex-col  py-2">
       {/* logo  */}
       <div>
-        <NavLink to={"/"} className="flex justify-center items-center">
-          <div className="">
+        <NavLink to={"/"} className="flex justify-center items-center logo_text">
+
+          <div className="logo">
             <img src={logo} alt="" className="w-20 mb-5" />
           </div>
           <div className="ml-3">

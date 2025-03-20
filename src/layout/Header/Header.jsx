@@ -19,9 +19,9 @@ export default function Header() {
   const userLocal = getLocalStorage("userMovie0967146");
   // console.log(userLocal);
   const menuBar = [
-    { titleMenu: "Trang Chủ", path: "#header" },
+    // { titleMenu: "Trang Chủ"  },
     { titleMenu: "Lịch Chiếu", path: "#lichChieu" },
-    { titleMenu: "Danh Sách Phim", path: "#banner" },
+    { titleMenu: "Danh Sách Phim", path: "#listMovie" },
     { titleMenu: "Tin Tức", path: "#listMovie" },
   ];
   // console.log(menuBar);
@@ -77,6 +77,7 @@ export default function Header() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
+            <NavLink to={"/"} className={"-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"}>Trang Chủ</NavLink>
             {menuBar.map((menu, index) => (
               <button
                 key={index}

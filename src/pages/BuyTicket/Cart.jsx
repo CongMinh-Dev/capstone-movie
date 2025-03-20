@@ -52,7 +52,7 @@ let notify=useContext(NotifyContext)
   let tokenUser = userLocal.accessToken
   let handelBookingTicket = () => {
 
-    if (arrCart.length > 0) {
+    if (arrCart.length > 0 ) {
       axios({
         url: "https://movienew.cybersoft.edu.vn/api/QuanLyDatVe/DatVe",
         method: "POST",

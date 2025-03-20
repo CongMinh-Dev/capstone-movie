@@ -50,7 +50,11 @@
                 flex-direction: column;
               }
               .titlePhim {
+                
                 .namePhim {
+                  @include breakpoint(sm) {
+                    justify-content: center;
+                  }
                   .c18Content {
                     @include breakpoint(sm) {
                       // overflow-x: scroll;
@@ -63,6 +67,9 @@
                   }
                   .titleContent {
                     font-size: 20px;
+                    @include breakpoint(sm) {
+                      width: 150px;
+                    }
                   }
                 }
               }
@@ -72,6 +79,30 @@
       }
     }
   }
+  .button_time{
+    transition: all .5s;
+    border: 1px solid white;    
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, .5);     
+    &:hover{background-color: white;}
+  }
+  .lich_chieu_phim{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    gap: 10px;
+    @include breakpoint(sm) {
+      // overflow-x: scroll;
+      width: 250px;
+      justify-content: center;	
+    }
+  }
+  .tabPhimContent {
+    @include breakpoint(sm) {
+      // overflow-x: scroll;
+      text-align: -webkit-center;	
+    }
+  }
+ 
 }
 
 @keyframes moveX {

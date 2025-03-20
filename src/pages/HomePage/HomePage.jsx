@@ -17,9 +17,11 @@ const HomePage = () => {
       <Banner />
 
       {/* list movie  */}
-
       <ListMovie />
+
+      {/* lịch chiếu cụm rạp */}
       <LichChieuCumRap />
+      
       {/* footer  */}
       <Footer />
     </div>
