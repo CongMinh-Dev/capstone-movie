@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import logo from "./../../assets/img/PoiopTicket.jpg";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { getLocalStorage } from "../../utils/util";
+import { getLocalStorage, saveLocalStorage } from "../../utils/util";
 import { Button, Drawer } from "antd";
 import "./_header.scss";
 
@@ -27,8 +27,12 @@ export default function Header() {
   // console.log(menuBar);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const handleLogout = () => {
+
     localStorage.removeItem("userMovie0967146");
+    
+    
     onClose();
+    window.location.reload();
     // Redirect or do any additional logic after logout
   };
 
