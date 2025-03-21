@@ -90,7 +90,7 @@ const SignIn = () => {
             />
             <div>
               <p>
-                Chưa có tài khoản ư? bấm
+                Bạn chưa có tài khoản? bấm
                 {/* nếu     NavLink to="sign-up"    thì bên route: components signUp phải đặt là con của component hiện tại này. tại component này phải thêm <outLet/>  */}
                
                 <NavLink to="/sign-up" className="mx-1 text-blue-500">
