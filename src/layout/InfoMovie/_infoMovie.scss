@@ -25,7 +25,7 @@
  height: 100vh;
  width: 100%;
  background-color: rgba(0, 0, 0, 0.884);
- z-index: 2;
+ z-index: 3;
  display: none;
 }
 .info_movie{
@@ -37,7 +37,7 @@
   top: 0;
   left: 50%;
   transform: translate(-50%);
-  z-index: 3;
+  z-index: 4;
   background-color: rgba(255, 166, 0, 0.9);
   height: 100vh;
   display: none;
