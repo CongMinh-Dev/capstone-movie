@@ -4,7 +4,7 @@
     width: 100%;
     .lichChieuPhim{
         display: flex;
-        
+        flex-wrap: wrap;
     }
     button{
         transition: all 0.5s;

@@ -81,7 +81,7 @@ const DetailMovie = () => {
             Danh sách lịch chiếu cụm rạp
           </h2>
           {/* tab lịch chiếu cụm rạp  */}
-          <div className="tabContentSchedule p-5 my-5 outline-dashed outline-1 outline-white">
+          <div className="tabContentSchedule p-5 my-5 outline-dashed outline-1 outline-white ">
             <div className="tabContentTheater mx-auto">
               <Tabs
                 tabPosition="top"

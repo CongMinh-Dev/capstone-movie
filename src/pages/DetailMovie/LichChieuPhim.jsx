@@ -23,7 +23,7 @@ const LichChieuPhim = ({ cumRapChieu }) => {
                         <div className='lichChieuPhim'>
                             {cumrap.lichChieuPhim?.map((item) => {
                                 return (
-                                    <div key={item.maLichChieu} className='px-2'>
+                                    <div key={item.maLichChieu} className='px-2 py-2'>
                                         {user ? (
                                             <NavLink to={`/buy-ticket/${item.maLichChieu}`}>
                                                 <button className='border rounded py-2 px-4'  >
