@@ -57,10 +57,10 @@ const SignIn = () => {
   };
   return (
     <div className="h-screen flex">
-      <div className="animation_signIn w-7/12 flex items-center justify-center">
+      <div className="animation_signIn w-6/12 flex items-center justify-center">
         <Lottie options={defaultOptions} height={400} width={400} />
       </div>
-      <div className="form_signIn w-5/12 flex items-center justify-center flex-col">
+      <div className="form_signIn w-6/12 flex items-center justify-center flex-col">
         <div className="p-10 border border-gray-400 rounded-md space-y-5">
           <h1>Đăng nhập vào movie CyberSoft</h1>
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -90,15 +90,23 @@ const SignIn = () => {
             />
             <div>
               <p>
-                Bạn chưa có tài khoản? bấm
+                Bấm
                 {/* nếu     NavLink to="sign-up"    thì bên route: components signUp phải đặt là con của component hiện tại này. tại component này phải thêm <outLet/>  */}
                
                 <NavLink to="/sign-up" className="mx-1 text-blue-500">
                   vào đây
                 </NavLink>
                 
-                để đăng ký.
+                đăng ký.
                 
+                Bấm
+                {/* nếu     NavLink to="sign-up"    thì bên route: components signUp phải đặt là con của component hiện tại này. tại component này phải thêm <outLet/>  */}
+               
+                <NavLink to="/" className="mx-1 text-blue-500">
+                  vào đây
+                </NavLink>
+                
+                quay về trang chủ.
               </p>
               <button
                 type="submit"
