@@ -43,10 +43,10 @@ const LichChieuPhim = ({ cumrap }) => {
                 {item.danhSachPhim.map((phim, index) => {
                   if (filmSelected == null) {
                     return (
-                      <div className="tabPhim flex my-10" key={index}>
+                      <div className="tabPhim flex my-5" key={index}>
                         <div className="tabPhimContent mr-5 mb-2">
                           <img
-                            className="w-36 h-full rounded-lg"
+                            className="w-36  rounded-lg"
                             src={phim.hinhAnh}
                             alt=""
                           />
@@ -97,10 +97,10 @@ const LichChieuPhim = ({ cumrap }) => {
                   } else if (filmSelected != null) {
                     if (filmSelected === phim.maPhim) {
                       return (
-                        <div className="tabPhim flex my-10" key={index}>
+                        <div className="tabPhim flex my-5" key={index}>
                           <div className="tabPhimContent mr-5 mb-2">
                             <img
-                              className="w-36 h-full rounded-lg"
+                              className="w-36 rounded-lg"
                               src={phim.hinhAnh}
                               alt=""
                             />

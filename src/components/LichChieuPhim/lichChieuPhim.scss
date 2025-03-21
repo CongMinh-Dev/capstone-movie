@@ -91,18 +91,38 @@
     width: 300px;
     gap: 10px;
     @include breakpoint(sm) {
-      // overflow-x: scroll;
       width: 250px;
       justify-content: center;	
     }
   }
   .tabPhimContent {
     @include breakpoint(sm) {
-      // overflow-x: scroll;
       text-align: -webkit-center;	
     }
   }
+ img{
  
+  @include breakpoint(xxl) {
+    height:192px ;
+  }
+  @include breakpoint(xl) {
+    height:192px ;
+  }
+  @include breakpoint(md) {
+    height:130px ;
+    margin-left: 4px;
+  }
+  @include breakpoint(lg) {
+    height:130 ;
+  }
+  @include breakpoint(sm) {
+    height:130 ;
+  }
+  @include breakpoint(xs) {
+    height:130 ;
+  }
+  
+ }
 }
 
 @keyframes moveX {
