@@ -32,7 +32,7 @@ const LichChieuPhim = ({ cumRapChieu }) => {
                                                 </button>
                                             </NavLink>) : (
                                             <button className='border rounded py-2 px-4'  onClick={() => {
-                                                notify("Bạn chưa đăng nhập")
+                                                notify("Đăng nhập để đặt vé")
                                             }
                                             }       >
                                                 {moment(item.ngayChieuGioChieu).format("DD-MM-YYYY")} ~ {moment(item.ngayChieuGioChieu).format("HH:MM")}

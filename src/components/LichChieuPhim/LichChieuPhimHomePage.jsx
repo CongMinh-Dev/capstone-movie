@@ -72,7 +72,7 @@ const LichChieuPhim = ({ cumrap }) => {
                                         onClick={() => {
                                           user?(navigate(
                                             `/buy-ticket/${gioChieu.maLichChieu}`
-                                          )):(notify("Bạn chưa đăng nhập"))
+                                          )):(notify("Đăng nhập để đặt vé"))
                                           
                                         }}
                                       >
@@ -126,7 +126,7 @@ const LichChieuPhim = ({ cumrap }) => {
                                           onClick={() => {
                                             user?(navigate(
                                               `/buy-ticket/${gioChieu.maLichChieu}`
-                                            )):(notify("Bạn chưa đăng nhập"))
+                                            )):(notify("Đăng nhập để đặt vé"))
                                             
                                           }}
                                         >

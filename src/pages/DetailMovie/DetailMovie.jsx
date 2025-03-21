@@ -17,6 +17,7 @@ import { getAllLichChieuThunk } from "../../redux/slice/lichChieuPhimSlice";
 // import "./_lichChieuCumRap.scss";
 import LichChieuPhim from "./LichChieuPhim";
 import { Tabs } from "antd";
+import BackToHome from "../../components/backToHome/BackToHome";
 
 
 const DetailMovie = () => {
@@ -51,6 +52,8 @@ const DetailMovie = () => {
 
   return (
     <>
+      <BackToHome />
+
       {/* header */}
       <Header />
       {/* banner detail */}

@@ -1,31 +1,16 @@
-// .detailMovie{
-//     height: 100vh;
-//     background-color: rgb(10, 32, 41);
-//     .img_phim{
-//         img{
-//             height: 365px;
-//             width: 100%;
-//             object-fit: cover;
-//         }
-//     }
-//     .desc_movie{
-//         width: 40%;
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: center;
-//     }
-//     .cum_rap{
-//         background-color: white;
-//         width: 70%;
-//         margin: auto;
-//     }
-        
-// }
+
 
 .cumRapDetailMovie{
     width: 100%;
     .lichChieuPhim{
         display: flex;
         
+    }
+    button{
+        transition: all 0.5s;
+        &:hover{
+
+            background-color: white;
+        }
     }
 }

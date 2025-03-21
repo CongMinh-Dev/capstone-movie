@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllArrPhongVeThunk } from '../../redux/slice/arrPhongVeSlice'
 import Item from './Item'
 import Footer from '../../layout/Footer/Footer'
+import BackToHome from '../../components/backToHome/BackToHome'
 const BuyTicket = () => {
   let { maLichChieu } = useParams()
 
@@ -21,6 +22,8 @@ const BuyTicket = () => {
 
   return (
     <div className='background_img_ticket'>
+      <BackToHome/>
+      
       <div className='background_color_ticket '></div>
       <div className="booking_ticket ">
         {/* trang chủ */}
