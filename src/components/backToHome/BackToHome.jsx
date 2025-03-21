@@ -10,7 +10,7 @@ function BackToHome() {
         navigate("/")
         
       }
-      }>HOME</button>
+      }>BACK</button>
     </div>
   )
 }
