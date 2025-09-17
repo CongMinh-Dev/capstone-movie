@@ -14,10 +14,16 @@ export const getAllArrPhongVeThunk = createAsyncThunk(
   "quanLyDatve/getAllArrPhongVeThunk",
   async (dataLocal, { _, dispatch }) => {
     dispatch(handleTurnOnLoading());
-    const res = await quanLyDatve.layDanhSachPhongVe(dataLocal);
-    dispatch(handleTurnOffLoading());
-    // res.data.content
-    return res.data.content;
+    try {
+      const res = await quanLyDatve.layDanhSachPhongVe(dataLocal);
+      dispatch(handleTurnOffLoading());
+      return res.data.content;
+    } catch (error) {
+      dispatch(handleTurnOffLoading());
+      return error.response.data.content
+    }
+
+
   }
 );
 
@@ -43,7 +49,7 @@ const arrPhongVeSlice = createSlice({
       state.arrCart = [...arrCartTam]
     },
     handelAddToTicketSlice: (state, action) => {
-      let ticket = { maLichChieu: action.payload.maLichChieu}
+      let ticket = { maLichChieu: action.payload.maLichChieu }
       let gheTam = {
         maGhe: action.payload.ghe.maGhe,
         giaVe: action.payload.ghe.giaVe,
@@ -53,12 +59,12 @@ const arrPhongVeSlice = createSlice({
       state.objTicket = ticket
     },
     handelRemoveToTicketSlice: (state, action) => {
-      let ticket = { maLichChieu: action.payload.maLichChieu}
-      let index=arrGheToObjTicket.findIndex((ghe) => {
+      let ticket = { maLichChieu: action.payload.maLichChieu }
+      let index = arrGheToObjTicket.findIndex((ghe) => {
         return ghe.maGhe == action.payload.ghe.maGhe
       }
       )
-      arrGheToObjTicket.splice(index,1)
+      arrGheToObjTicket.splice(index, 1)
       ticket.danhSachVe = [...arrGheToObjTicket]
       state.objTicket = ticket
     },

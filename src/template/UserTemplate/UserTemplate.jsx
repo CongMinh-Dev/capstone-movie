@@ -22,7 +22,7 @@ const UserTemplate = () => {
   // };
   return (
     <NotifyContext.Provider value={renderNotify}>
-      {isLoading ? <Loading /> : null}
+      {/* {isLoading ? <Loading /> : null} */}
       <Outlet /> 
       <ToastContainer autoClose={closeTime} theme="dark" />
     </NotifyContext.Provider>

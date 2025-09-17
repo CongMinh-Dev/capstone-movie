@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useRoutes } from "react-router-dom";
+import {  useRoutes } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import SignIn from "../pages/SignIn/SignIn";
 import UserTemplate from "../template/UserTemplate/UserTemplate";
@@ -8,9 +8,9 @@ import MovieManager from "../pages/MovieManager/MovieManager";
 import AddMovie from "../pages/AddMovie/AddMovie";
 import SignUp from "../pages/SignUp/SignUp";
 import UsManager from "../pages/UsManager/UsManager";
-import FormUpdateUs from "../pages/UsManager/FormUpdateUs";
 import DetailMovie from "../pages/DetailMovie/DetailMovie";
 import BuyTicket from "../pages/BuyTicket/BuyTicket";
+import Nhap from "../pages/Nhap/Nhap";
 
 const useRoutesCustom = () => {
   const routes = useRoutes([
@@ -38,13 +38,14 @@ const useRoutesCustom = () => {
           path: "/detail/:maPhim",
           element: <DetailMovie />,
         },
-        // {
-        //   path: "/buy-ticket",
-        //   element: <BuyTicket />,
-        // },
+        
         {
           path: "/buy-ticket/:maLichChieu",
           element: <BuyTicket />,
+        },
+        {
+          path: "/nhap",
+          element: <Nhap />,
         },
       ],
     },
@@ -79,3 +80,7 @@ const useRoutesCustom = () => {
 };
 
 export default useRoutesCustom;
+
+
+
+
