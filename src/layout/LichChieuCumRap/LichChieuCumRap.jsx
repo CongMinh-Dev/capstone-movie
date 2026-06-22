@@ -6,30 +6,22 @@ import LichChieuPhimHomePage from "../../components/LichChieuPhim/LichChieuPhimH
 import "./_lichChieuCumRap.scss";
 
 const LichChieuCumRap = () => {
-  const [arrCumRap, setArrCumRap] = useState([]);
   const [maHeThongRapArray, setMaHeThongRapArray] = useState([]);
-  const [maHeThongRap, setMaHeThongRap] = useState("BHDStar");
+
 
 
   useEffect(() => {
     quanLyRapServ
       .getAllMaHeThongRap()
       .then((res) => {
-        // console.log(res);
-        setMaHeThongRapArray(res.data.content);
+        let a=[]
+        a.push(res.data.content[0])
+        setMaHeThongRapArray(a);
       })
       .catch((err) => {
         console.log(err);
       });
-    quanLyRapServ
-      .getAllThongTinCumRap(maHeThongRap)
-      .then((res) => {
-        // console.log(res);
-        setArrCumRap(res.data.content);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+   
   }, []);
 
   return (
@@ -46,12 +38,11 @@ const LichChieuCumRap = () => {
               style={{
                 height: "700px",
               }}
-              items={arrCumRap.map((cumrap, index) => {
-                // console.log(cumrap);
+              items={maHeThongRapArray.map((heThong, index) => {
                 return {
-                  label: <img className="w-14" src={cumrap.logo} alt="" />,
-                  key: cumrap.maHeThongRap,
-                  children: <LichChieuPhimHomePage cumrap={cumrap.lstCumRap} />,
+                  label: <img className="w-14" src={heThong.logo} alt="" />,
+                  key: heThong.maHeThongRap,
+                  children: <LichChieuPhimHomePage maHeThongRap={heThong.maHeThongRap} />,
                 };
               })}
             />

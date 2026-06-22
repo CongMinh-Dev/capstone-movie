@@ -5,7 +5,7 @@ export const quanLyRapServ = {
     return http.get("/QuanLyRap/LayThongTinHeThongRap");
   },
   getAllThongTinCumRap(maHeThongRap) {
-    return http.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP01`);
+    return http.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP02`);
   },
   getLichChieu(maLichChieu) {
     return http.get(

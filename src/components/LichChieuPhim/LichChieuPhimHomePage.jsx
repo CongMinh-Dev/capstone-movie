@@ -6,17 +6,31 @@ import "./lichChieuPhim.scss";
 import { getLocalStorage } from "../../utils/util";
 import { NotifyContext } from "../../template/UserTemplate/UserTemplate";
 import { use } from "react";
+import { quanLyRapServ } from "../../services/quanLyRap";
 
-const LichChieuPhim = ({ cumrap }) => {
+const LichChieuPhim = ({ maHeThongRap }) => {
   const { maPhim } = useParams();
   const navigate = useNavigate();
   const [filmSelected, setFilmSelected] = useState(null);
   const user = getLocalStorage("userMovie0967146");
   const notify = useContext(NotifyContext);
+  const [cumrap, setCumrap] = useState([]);
+
 
   useEffect(() => {
     setFilmSelected(maPhim);
   }, [maPhim]);
+  useEffect(() => {
+    quanLyRapServ
+      .getAllThongTinCumRap(maHeThongRap)
+      .then((res) => {
+        setCumrap(res.data.content[0].lstCumRap);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [maHeThongRap]);
+
 
   return (
     <div className="">
