@@ -1,8 +1,11 @@
 import { http } from "./config";
 
 export const quanLyRapServ = {
-  getAllThongTinCumRap() {
-    return http.get("/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=GP01");
+  getAllMaHeThongRap() {
+    return http.get("/QuanLyRap/LayThongTinHeThongRap");
+  },
+  getAllThongTinCumRap(maHeThongRap) {
+    return http.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP01`);
   },
   getLichChieu(maLichChieu) {
     return http.get(

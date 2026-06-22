@@ -7,9 +7,22 @@ import "./_lichChieuCumRap.scss";
 
 const LichChieuCumRap = () => {
   const [arrCumRap, setArrCumRap] = useState([]);
+  const [maHeThongRapArray, setMaHeThongRapArray] = useState([]);
+  const [maHeThongRap, setMaHeThongRap] = useState("BHDStar");
+
+
   useEffect(() => {
     quanLyRapServ
-      .getAllThongTinCumRap()
+      .getAllMaHeThongRap()
+      .then((res) => {
+        // console.log(res);
+        setMaHeThongRapArray(res.data.content);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    quanLyRapServ
+      .getAllThongTinCumRap(maHeThongRap)
       .then((res) => {
         // console.log(res);
         setArrCumRap(res.data.content);
