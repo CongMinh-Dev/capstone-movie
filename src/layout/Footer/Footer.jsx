@@ -43,16 +43,16 @@ const Footer = () => {
           <div className="socialLink" style={{marginTop: "10px"}}>
             <div className="socialIcon">
               <NavLink to={"/"}>
-                <i class="fa-brands fa-facebook-f"></i>
+                <i className="fa-brands fa-facebook-f"></i>
               </NavLink>
               <NavLink to={"/"}>
-                <i class="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </NavLink>
               <NavLink to={"/"}>
-                <i class="fa-brands fa-x-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </NavLink>
               <NavLink to={"/"}>
-                <i class="fa-brands fa-reddit-alien"></i>
+                <i className="fa-brands fa-reddit-alien"></i>
               </NavLink>
             </div>
           </div>
