@@ -32,7 +32,7 @@ const Li = () => {
       const responses = await Promise.all(promises);
       setMovieLists(responses.map((res,index) => {
         if (index<3) {
-          return res.data.content.items
+          return res.data.content.data
         } else{ return res.data.content}
       }
       ));

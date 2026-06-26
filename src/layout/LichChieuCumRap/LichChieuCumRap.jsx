@@ -14,9 +14,7 @@ const LichChieuCumRap = () => {
     quanLyRapServ
       .getAllMaHeThongRap()
       .then((res) => {
-        let a=[]
-        a.push(res.data.content[0])
-        setMaHeThongRapArray(a);
+        setMaHeThongRapArray(res.data.content);
       })
       .catch((err) => {
         console.log(err);
@@ -38,7 +36,7 @@ const LichChieuCumRap = () => {
               style={{
                 height: "700px",
               }}
-              items={maHeThongRapArray.map((heThong, index) => {
+              items={maHeThongRapArray.map((heThong) => {
                 return {
                   label: <img className="w-14" src={heThong.logo} alt="" />,
                   key: heThong.maHeThongRap,

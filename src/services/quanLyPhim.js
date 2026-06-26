@@ -1,11 +1,11 @@
-import { http } from "./config";
+import { http, http2 } from "./config";
 
 export const quanLyPhimServ = {
   getAllBanner: () => {
     return http.get("/QuanLyPhim/LayDanhSachBanner");
   },
   getAllMovie: () => {
-    return http.get("/QuanLyPhim/LayDanhSachPhim?maNhom=GP01");
+    return http2.get("/QuanLyPhim/LayDanhSachPhim");
   },
   themPhimUploadHinh: (data) => {
     return http.post("/QuanLyPhim/ThemPhimUploadHinh", data);
@@ -14,8 +14,8 @@ export const quanLyPhimServ = {
     return http.get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCodes}`);
   },
   getMoviePage: (page) => {
-    return http.get(
-      `/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP0${page}&soTrang=1&soPhanTuTrenTrang=8`
+    return http2.get(
+      `/QuanLyPhim/LayDanhSachPhimPhanTrang?page=${page}&pageSize=8`
     );
   },
   getInforMovie: (movieCodes) => {

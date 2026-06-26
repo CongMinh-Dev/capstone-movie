@@ -8,3 +8,9 @@ export const http = axios.create({
   },
   timeout: 30000,
 });
+
+export const http2 = axios.create({
+  // endpoint
+  baseURL: "https://apiphim.minh2309.io.vn/api",
+  timeout: 30000,
+});
