@@ -5,6 +5,7 @@ import { Rate } from "antd";
 import { useNavigate } from "react-router-dom";
 import "./_infoMovie.scss";
 import { useEffect, useState } from "react";
+import { CloseOutlined } from "@ant-design/icons";
 // import { useEffect } from "react";
 
 const InfoMovie = () => {
@@ -19,18 +20,16 @@ const InfoMovie = () => {
   const releaseDay = `${day}/${month}/${year}`;
 
   // tắt video trailer
-  
+
   const [urlTrailer, setUrlTrailer] = useState(selectedMovie.trailer);
   useEffect(() => {
-    setUrlTrailer(selectedMovie.trailer)
-  }
-  ,[selectedMovie])
-  let handelTurnOffTrailer=() => {
-    document.querySelector(".info_movie_bg").style.display="none"
-    document.querySelector(".info_movie").style.display="none"
-    setUrlTrailer("")
-  }
-  
+    setUrlTrailer(selectedMovie.trailer);
+  }, [selectedMovie]);
+  let handelTurnOffTrailer = () => {
+    document.querySelector(".info_movie_bg").style.display = "none";
+    document.querySelector(".info_movie").style.display = "none";
+    setUrlTrailer("");
+  };
 
   return (
     <div>
@@ -41,7 +40,15 @@ const InfoMovie = () => {
 
       {/* info movie */}
       <button className="info_movie_bg" onClick={handelTurnOffTrailer}></button>
-      <div className="p-5 info_movie">
+      <div className="p-5 info_movie relative">
+        {/* Nút đóng */}
+        <button
+          className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-red-600 text-white rounded-full shadow-lg hover:bg-red-700 transition-all"
+          onClick={handelTurnOffTrailer}
+        >
+          <CloseOutlined />
+        </button>
+
         <h3 className="text-center text-3xl font-bold">Thông Tin Phim</h3>
         <div className="trailerMovie p-5">
           <ReactPlayer
@@ -113,15 +120,13 @@ const InfoMovie = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
 export default InfoMovie;
 
-
 // selectedMovie && Object.keys(selectedMovie).length === 0 ? (
 //   <div className="ads lg:m-5 h-full xl:m-5 rounded-3xl overflow-hidden">
 //     <img src={ads} alt="" className="w-full object-contain" />
 //   </div>
-// ) : 
+// ) :
