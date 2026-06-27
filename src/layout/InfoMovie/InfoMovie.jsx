@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ads from "./../../assets/img/ads.jpg";
 import ReactPlayer from "react-player/youtube";
 import { Rate } from "antd";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./_infoMovie.scss";
 import { useEffect, useState } from "react";
 import { CloseOutlined } from "@ant-design/icons";
+import { setMovieDetail } from "../../redux/slice/movieSlice";
 // import { useEffect } from "react";
 
 const InfoMovie = () => {
@@ -25,10 +26,12 @@ const InfoMovie = () => {
   useEffect(() => {
     setUrlTrailer(selectedMovie.trailer);
   }, [selectedMovie]);
+
+  const dispatch = useDispatch();
   let handelTurnOffTrailer = () => {
     document.querySelector(".info_movie_bg").style.display = "none";
     document.querySelector(".info_movie").style.display = "none";
-    setUrlTrailer("");
+    dispatch(setMovieDetail(""));
   };
 
   return (
