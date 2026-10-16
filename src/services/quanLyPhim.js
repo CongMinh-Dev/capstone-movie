@@ -4,8 +4,11 @@ export const quanLyPhimServ = {
   getAllBanner: () => {
     return http.get("/QuanLyPhim/LayDanhSachBanner");
   },
+  // getAllMovie: () => {
+  //   return http2.get("/QuanLyPhim/LayDanhSachPhim");
+  // },
   getAllMovie: () => {
-    return http2.get("/QuanLyPhim/LayDanhSachPhim");
+    return http.get("/QuanLyPhim/LayDanhSachPhim");
   },
   themPhimUploadHinh: (data) => {
     return http.post("/QuanLyPhim/ThemPhimUploadHinh", data);
@@ -13,8 +16,13 @@ export const quanLyPhimServ = {
   getInforMovie: (movieCodes) => {
     return http.get(`/QuanLyPhim/LayThongTinPhim?MaPhim=${movieCodes}`);
   },
+  // getMoviePage: (page) => {
+  //   return http2.get(
+  //     `/QuanLyPhim/LayDanhSachPhimPhanTrang?page=${page}&pageSize=8`
+  //   );
+  // },
   getMoviePage: (page) => {
-    return http2.get(
+    return http.get(
       `/QuanLyPhim/LayDanhSachPhimPhanTrang?page=${page}&pageSize=8`
     );
   },

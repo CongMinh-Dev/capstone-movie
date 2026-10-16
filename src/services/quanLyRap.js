@@ -4,8 +4,11 @@ export const quanLyRapServ = {
   getAllMaHeThongRap() {
     return http.get("/QuanLyRap/LayThongTinHeThongRap");
   },
+  // getAllThongTinCumRap(maHeThongRap) {
+  //   return http2.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}`);
+  // },
   getAllThongTinCumRap(maHeThongRap) {
-    return http2.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}`);
+    return http.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}`);
   },
   getLichChieu(maLichChieu) {
     return http.get(
